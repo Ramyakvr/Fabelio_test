@@ -1,0 +1,20 @@
+<script type="text/javascript">
+	function showNextWord(index) {
+		index += 1
+		$(".display_word").text(words[index]);
+		if(index < words.length) {
+			setTimeout(showNextWord, delay, index) 
+		}		
+	}
+</script>
+
+<div class='display_common_words'>
+	<div class = 'display_word'><%=@words[0]%></div>
+	<script>
+		var delay = 3000
+		var words = <%= raw @words.to_json %>
+		setTimeout(showNextWord, delay, 0) 
+	</script>
+</div>
+
+
