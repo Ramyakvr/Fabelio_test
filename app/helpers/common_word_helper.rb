@@ -10,7 +10,7 @@ module CommonWordHelper
 				words = e.message
 			end
 			return (words+"\nError in "+source) unless words.is_a? Array
-			common_words &= words
+			common_words = common_words.empty? ? words : (common_words & words)
 			return 'No Common Words are found' if common_words.empty?
 		}
 	end
